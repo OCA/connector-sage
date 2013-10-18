@@ -1,8 +1,8 @@
-# -*- encoding: utf-8 -*-
+# -*- coding: utf-8 -*-
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2013 Gestion-Ressources (<http://www.gestion-ressources.com>).
+#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -15,29 +15,28 @@
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program. If not, see <http://www.gnu.org/licenses/>.
+#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
 
-from osv import osv, fields
+from openerp.osv import fields, osv
 import web
 import base64
-import tools
-from tools.translate import _
-from tools.misc import get_iso_codes
+import openerp.tools
+from openerp.tools.translate import _
+from openerp.tools.misc import get_iso_codes
 import pooler
 from datetime import datetime
-import decimal_precision as dp
+import openerp.addons.decimal_precision as dp
 
 
 class exportsage(osv.osv):
-
     """
     Wizard 
     """
     _name = "exportsage"
     _description = "Create imp file  to export  in sage50"
-    _inherit = "ir.wizard.screen"
+    #_inherit = "ir.wizard.screen"
     _columns = {
         'data': fields.binary('File', readonly=True),
         'name': fields.char('Filename', 20, readonly=True),
@@ -52,15 +51,15 @@ class exportsage(osv.osv):
     _defaults = {
         'state': lambda *a: 'choose',
     }
+
     def act_cancel(self, cr, uid, ids, context=None):
         #self.unlink(cr, uid, ids, context)
-        return {'type':'ir.actions.act_window_close' }
+        return {'type': 'ir.actions.act_window_close'}
 
 
     def act_destroy(self, *args):
-        return {'type':'ir.actions.act_window_close' }   
+        return {'type': 'ir.actions.act_window_close'}
 
- 
     def create_report(self, cr, uid, ids, context=None):
         if context == None:
             context = {}
@@ -81,17 +80,17 @@ class exportsage(osv.osv):
             #informations sur le client
             costumer_name = line.partner_id.name
             oneTimefield = ""
-            contact_name = line.partner_id.address[0].name or ""
-            street1 = line.partner_id.address[0].street or ""
-            street2 = line.partner_id.address[0].street2 or ""
-            city = line.partner_id.address[0].city or ""
-            province_state = line.partner_id.address[0].state_id.name or ""
-            zip_code = line.partner_id.address[0].zip or ""
-            country = line.partner_id.address[0].country_id.name or ""
-            phone1 = line.partner_id.address[0].phone or ""
-            mobile = line.partner_id.address[0].mobile or ""
-            fax = line.partner_id.address[0].fax or ""
-            email = line.partner_id.address[0].email or ""
+            contact_name = line.partner_id.name or ""
+            street1 = line.partner_id.street or ""
+            street2 = line.partner_id.street2 or ""
+            city = line.partner_id.city or ""
+            province_state = line.partner_id.state_id.name or ""
+            zip_code = line.partner_id.zip or ""
+            country = line.partner_id.country_id.name or ""
+            phone1 = line.partner_id.phone or ""
+            mobile = line.partner_id.mobile or ""
+            fax = line.partner_id.fax or ""
+            email = line.partner_id.email or ""
             # ligne de client
             fields = [costumer_name, oneTimefield, contact_name, street1, street2,
                       city, province_state, zip_code, country, phone1, mobile, fax, email
@@ -190,7 +189,20 @@ class exportsage(osv.osv):
         this.name = "%s.%s" % (filename, this.format)
         out = base64.encodestring(output)
         self.write(cr, uid, ids, {'state':'get', 'data':out, 'name':this.name, 'format' : this.format}, context=context)
-        
+
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'exportsage',
+            'view_mode': 'form',
+            'view_type': 'form',
+            'res_id': this.id,
+            'views': [(False, 'form')],
+            'target': 'new',
+        }
+
+
+
 exportsage()
+
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
