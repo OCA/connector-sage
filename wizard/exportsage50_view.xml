@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="account_invoice_generate_export_view" model="ir.ui.view">
+            <field name="name">Export to Sage50</field>
+            <field name="model">exportsage</field>
+            <field name="arch" type="xml">
+                <form string="Export to Sage50" version="7.0">
+                    <field invisible="1" name="state"/>
+                    <field invisible="1" name="format"/>
+                    <label string="This action allows you to export accounting data from OpenErp to Simply account.You should have the same configuration about the tax information"/>
+                    <group states="choose" string="Export Settings">
+                        <field name="invoice_ids" colspan="4" nolabel="1"/>
+                    </group>
+                    <div states="get">
+                        <h2>Export Complete</h2>
+                        <p>Here is the exported  file: <field name="data" readonly="1" filename="name"/></p>
+                        <p>This file was generated using the universal <strong>Unicode/UTF-8</strong> file encoding, please be sure to view and edit
+                           using the same encoding.</p>
+                    </div>
+                    <footer states="choose">
+                        <button name="create_report" string="Export" type="object" class="oe_highlight"/> or
+                        <button special="cancel" string="Cancel" type="object" class="oe_link"/>
+                    </footer>
+                    <footer states="get">
+                        <button special="cancel" string="Close" type="object"/>
+                    </footer>
+                </form>
+            </field>
+        </record>
+
+        <record id="action_account_invoice_generate_export_view" model="ir.actions.act_window">
+            <field name="name">Export accounting data to Sage50</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">exportsage</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">form</field>
+
+            <field name="target">new</field>
+        </record>
+        <menuitem action="action_account_invoice_generate_export_view" id="menu_account_invoice_generate_export_view" parent="account.menu_finance_legal_statement"/>
+    </data>
+</openerp>

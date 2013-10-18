@@ -23,7 +23,6 @@
     'name': 'Export to Sage50',
     'version': '1.0',
     "category": 'Accounting & Finance',
-    'complexity': "easy",
     'description': """
 French version below
 
@@ -109,20 +108,16 @@ Comment exporter les données comptables à partir d'OpenERP?
 Un manuel d'utilisation est disponible dans le répertoire /doc du module.
 
     """,
-    "author": "Gestion-Ressources,Odoo Community Association (OCA)",
-    "website": "http://www.gestion-ressources.com",
+    "author": "Savoirfaire Linux,Gestion-Ressources,Odoo Community Association (OCA)",
+    'website': 'http://www.savoirfairelinux.com',
     "license": "AGPL-3",
-    'images': [],
     'depends': ['account'],
-    'update_xml': [
-        'wizard/exportsage50.xml',
+    'data': [
         'security/ir.model.access.csv',
+        'wizard/exportsage50_view.xml'
     ],
-    'demo_xml': [],
+    'demo': [],
     'test':[],
     'installable': True,
     'auto_install': False,
-    'certificate': '',
-    'application': True,
 }
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
