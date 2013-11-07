@@ -19,7 +19,7 @@
 #
 ##############################################################################
 
-from openerp.osv import fields, osv
+from openerp.osv import fields, orm
 import web
 import base64
 import openerp.tools
@@ -30,7 +30,7 @@ from datetime import datetime
 import openerp.addons.decimal_precision as dp
 
 
-class exportsage(osv.osv):
+class exportsage(orm.Model):
     """
     Wizard 
     """
