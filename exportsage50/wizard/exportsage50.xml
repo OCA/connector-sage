@@ -19,7 +19,7 @@
                                     string="Create"/>
                         </group>
                         <field invisible="1" name="state"/>
-			<field invisible="1" name="formats"/>
+			<field invisible="1" name="format"/>
                     </group>
 		    <group col="3" fill="0" states="get">
                         <separator colspan="3" string="Export done"/>
