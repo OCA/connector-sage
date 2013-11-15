@@ -46,7 +46,5 @@
     action="action_account_invoice_generate_export"
     parent="account.menu_finance_reporting"
     sequence="40" />
-
   </data>
 </openerp>
-
