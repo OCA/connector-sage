@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2013 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
+#    Copyright (C) 2013 Gestion-Ressources (<http://www.gestion-ressources.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -18,6 +18,7 @@
 #    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
 ##############################################################################
+
 {
     'name': 'Export to Sage50',
     'version': '1.0',
@@ -108,12 +109,11 @@ Comment exporter les données comptables à partir d'OpenERP?
 Un manuel d'utilisation est disponible dans le répertoire /doc du module.
 
     """,
-    "author": "Savoir-faire Linux",
-    "website": "http://www.savoirfairelinux.com",
+    "author": "Gestion-Ressources",
+    "website": "http://www.gestion-ressources.com",
     "license": "AGPL-3",
     'images': [],
     'depends': ['account'],
-    'init_xml': [],
     'update_xml': [
         'wizard/exportsage50.xml',
         'security/ir.model.access.csv',

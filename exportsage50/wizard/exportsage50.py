@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2013 Savoir-faire Linux (<http://www.savoirfairelinux.com>).
+#    Copyright (C) 2013 Gestion-Ressources (<http://www.gestion-ressources.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -191,8 +191,6 @@ class exportsage(osv.osv):
         out = base64.encodestring(output)
         self.write(cr, uid, ids, {'state':'get', 'data':out, 'name':this.name, 'format' : this.format}, context=context)
         
-	
 exportsage()
-
 
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

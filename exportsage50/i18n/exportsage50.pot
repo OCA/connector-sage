@@ -1,0 +1,116 @@
+# Translation of OpenERP Server.
+# This file contains the translation of the following modules:
+#	* exportsage50
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: OpenERP Server 6.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-11-15 15:35+0000\n"
+"PO-Revision-Date: 2013-11-15 15:35+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: exportsage50
+#: field:exportsage,format:0
+msgid "File Format"
+msgstr ""
+
+#. module: exportsage50
+#: help:exportsage,invoice_ids:0
+msgid "This is the list of invoices that have been generated for this sales order. The same sales order may have been invoiced in several times (by line for example)."
+msgstr ""
+
+#. module: exportsage50
+#: view:exportsage:0
+msgid "Export done"
+msgstr ""
+
+#. module: exportsage50
+#: selection:exportsage,state:0
+msgid "get"
+msgstr ""
+
+#. module: exportsage50
+#: view:exportsage:0
+#: field:exportsage,invoice_ids:0
+msgid "Invoices"
+msgstr ""
+
+#. module: exportsage50
+#: field:exportsage,state:0
+msgid "unknown"
+msgstr ""
+
+#. module: exportsage50
+#: view:exportsage:0
+msgid "Create"
+msgstr ""
+
+#. module: exportsage50
+#: code:addons/exportsage50/wizard/exportsage50.py:71
+#, python-format
+msgid "You have to select at least 1 Invoice. And try again"
+msgstr ""
+
+#. module: exportsage50
+#: field:exportsage,name:0
+msgid "Filename"
+msgstr ""
+
+#. module: exportsage50
+#: view:exportsage:0
+#: model:ir.ui.menu,name:exportsage50.menu_report
+msgid "Export to Sage50"
+msgstr ""
+
+#. module: exportsage50
+#: view:exportsage:0
+msgid "This action allows you to export accounting             data from OpenErp to Simply account.You should have the same configuration about the tax information"
+msgstr ""
+
+#. module: exportsage50
+#: model:ir.model,name:exportsage50.model_exportsage
+msgid "Create imp file  to export  in sage50"
+msgstr ""
+
+#. module: exportsage50
+#: selection:exportsage,state:0
+msgid "choose"
+msgstr ""
+
+#. module: exportsage50
+#: field:exportsage,data:0
+msgid "File"
+msgstr ""
+
+#. module: exportsage50
+#: code:addons/exportsage50/wizard/exportsage50.py:71
+#, python-format
+msgid "Error"
+msgstr ""
+
+#. module: exportsage50
+#: view:exportsage:0
+msgid "Cancel"
+msgstr ""
+
+#. module: exportsage50
+#: view:exportsage:0
+msgid "_Close"
+msgstr ""
+
+#. module: exportsage50
+#: field:exportsage,config_logo:0
+msgid "Image"
+msgstr ""
+
+#. module: exportsage50
+#: model:ir.actions.act_window,name:exportsage50.action_account_invoice_generate_export
+msgid "Export accounting data to Sage50"
+msgstr ""
+
