@@ -1,8 +1,8 @@
-# -*- coding: utf-8 -*-
-##############################################################################
+# -*- encoding: utf-8 -*-
+###############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
+#    Copyright (C) 2013 Gestion-Ressources (<http://www.gestion-ressources.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -11,13 +11,13 @@
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+#    along with this program. If not, see <http://www.gnu.org/licenses/>.
 #
-##############################################################################
+###############################################################################
 
 from openerp.osv import fields, orm
 import web
@@ -28,7 +28,6 @@ from openerp.tools.misc import get_iso_codes
 import pooler
 from datetime import datetime
 import openerp.addons.decimal_precision as dp
-
 
 class exportsage(orm.Model):
     """
@@ -55,7 +54,6 @@ class exportsage(orm.Model):
     def act_cancel(self, cr, uid, ids, context=None):
         #self.unlink(cr, uid, ids, context)
         return {'type': 'ir.actions.act_window_close'}
-
 
     def act_destroy(self, *args):
         return {'type': 'ir.actions.act_window_close'}
@@ -130,7 +128,6 @@ class exportsage(orm.Model):
                     paid_by_type = str(2)
                 else:
                     paid_by_type = str(0) # default value 0 = pay later
-
             else:
                 paid_by_type = str(0) # default value 0 = pay later
             total_amount = str(line.amount_total) or ""
@@ -173,12 +170,10 @@ class exportsage(orm.Model):
                                                        ]
                             tax_product_line = ',' + ','.join(['"%s"' % field_tax_product_line for field_tax_product_line in fields_tax_product_line])
                             #tax_product_line += ',"' + tax_name + '"' + ',"' + tax_included + '"' + ',"' + tax_refundable + '"' + ',"' + tax_rate + '"' + ',"' + tax_amount + '"'
-
                         #tax_product_line = tax_product_line[:-1]
                         tax_product_line = tax_product_line.encode('UTF-8')
                     product_line_invoice_with_taxe += one_product_invoice + tax_product_line + '\n'
                 #print product_line_invoice_with_taxe , exit(0)
-
                 output += product_line_invoice_with_taxe
             # tag de fin  pour les lignes de factures
             #output += '</SalInvoice>\n'
@@ -199,10 +194,4 @@ class exportsage(orm.Model):
             'views': [(False, 'form')],
             'target': 'new',
         }
-
-
-
-exportsage()
-
-
 # vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:

@@ -2,8 +2,7 @@
 ###############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    This module copyright (C) 2013 Savoir-faire Linux
-#    (<http://www.savoirfairelinux.com>).
+#    Copyright (C) 2013 Gestion-Ressources (<http://www.gestion-ressources.com>).
 #
 #    This program is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU Affero General Public License as
@@ -12,7 +11,7 @@
 #
 #    This program is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
 #    GNU Affero General Public License for more details.
 #
 #    You should have received a copy of the GNU Affero General Public License
@@ -39,7 +38,6 @@ into Sage 50.This document is part of the Sage 50 SDK (Software Development Kit)
 the following address : http://na.sage.com/sage-simply-accounting/lp/partners/sdk/?isnow=ssa.
 
 
-
 Sage 50: After creating .IMP file
 ====================================
 Solution:
@@ -47,7 +45,6 @@ Importing purchase invoices, purchase quotes, sales invoices and sales orders in
 How to import purchase invoices, purchase quotes, sales invoices and sales orders?
 You can import purchase invoices, purchase quotes, sales invoices and sales orders into Sage 50.
 The transaction(s) details should be in a text file with extension .IMP.
-
 
 After you have created the .IMP file, you can import the transaction(s) into Sage 50 by following these steps:
 (Account information is not included in the .IMP format because when importing the file, you will receive
