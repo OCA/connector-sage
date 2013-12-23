@@ -20,18 +20,15 @@
 ###############################################################################
 
 from openerp.osv import fields, orm
-import web
 import base64
-import openerp.tools
 from openerp.tools.translate import _
-from openerp.tools.misc import get_iso_codes
 import pooler
 from datetime import datetime
-import openerp.addons.decimal_precision as dp
+
 
 class exportsage(orm.Model):
     """
-    Wizard 
+    Wizard
     """
     _name = "exportsage"
     _description = "Create imp file  to export  in sage50"
@@ -40,7 +37,7 @@ class exportsage(orm.Model):
         'data': fields.binary('File', readonly=True),
         'name': fields.char('Filename', 20, readonly=True),
         'format': fields.char('File Format', 10),
-        'state': fields.selection([('choose', 'choose'), # choose date
+        'state': fields.selection([('choose', 'choose'),  # choose date
                                    ('get', 'get')]),
         'invoice_ids': fields.many2many('account.invoice', 'sale_order_invoice_export_rel', 'order_id', 'invoice_id',
                                         'Invoices', required=True,
@@ -59,13 +56,13 @@ class exportsage(orm.Model):
         return {'type': 'ir.actions.act_window_close'}
 
     def create_report(self, cr, uid, ids, context=None):
-        if context == None:
+        if context is None:
             context = {}
         this = self.browse(cr, uid, ids)[0]
         data = self.read(cr, uid, ids, [], context=context)[0]
 
         if not data['invoice_ids']:
-            raise osv.except_osv(_('Error'), _('You have to select at least 1 Invoice. And try again'))
+            raise orm.except_orm(_('Error'), _('You have to select at least 1 Invoice. And try again'))
 
         output = '<Version>''\n' + '"12001"' + ',' + '"1"''\n' + '</Version>\n\n'
         #Faire le traitement des autres lignes dans les lignes de factures
@@ -127,21 +124,20 @@ class exportsage(orm.Model):
                 elif paiement_type == 'bank':
                     paid_by_type = str(2)
                 else:
-                    paid_by_type = str(0) # default value 0 = pay later
+                    paid_by_type = str(0)  # default value 0 = pay later
             else:
-                paid_by_type = str(0) # default value 0 = pay later
+                paid_by_type = str(0)  # default value 0 = pay later
             total_amount = str(line.amount_total) or ""
             freight_amount = "0.0"
             fields_sale_invoice = [no_of_details, order_no, invoice_no, entry_date, paid_by_type,
-                                  paid_by_source, total_amount, freight_amount,
-                                  ]
+                                   paid_by_source, total_amount, freight_amount]
             sale_invoice = ','.join(['"%s"' % field_sale_invoice for field_sale_invoice in fields_sale_invoice])
             #sale_invoice = '"' + no_of_details + '"' + ',"' + order_no + '"' + ',"' + invoice_no + '"' + ',"' + entry_date + '"' + ',"' + paid_by_type + '"' + ',"' + paid_by_source + '"' + ',"' + total_amount + '"' + ',"' + freight_amount + '"'
             output += sale_invoice.encode('UTF-8') + '\n'
             product_line_invoice_with_taxe = ""
             #Sale invoice detail lines
-            account_invoice_line_obj =self.pool.get('account.invoice.line')
-            product_ids = account_invoice_line_obj.search(cr, uid, [('invoice_id','=',line.id)])
+            account_invoice_line_obj = self.pool.get('account.invoice.line')
+            product_ids = account_invoice_line_obj.search(cr, uid, [('invoice_id', '=', line.id)])
 
             if product_ids:
                 for product in account_invoice_line_obj.browse(cr, uid, product_ids):
@@ -158,12 +154,12 @@ class exportsage(orm.Model):
                     # tax information pour chaque produit
                     if product.invoice_line_tax_id:
                         for one_taxe in product.invoice_line_tax_id:
-                            tax_name = one_taxe.description # or one_taxe.description or one_taxe.name
+                            tax_name = one_taxe.description  # or one_taxe.description or one_taxe.name
                             if one_taxe.price_include:
-                                tax_included = str(1) # 1=yes,0=No
+                                tax_included = str(1)  # 1=yes, 0=No
                             else:
-                                tax_included = str(0) # 1=yes,0=No
-                            tax_refundable = str(1) # 1=yes,0=No
+                                tax_included = str(0)  # 1=yes, 0=No
+                            tax_refundable = str(1)  # 1=yes, 0=No
                             tax_rate = str(one_taxe.amount)
                             tax_amount = str(one_taxe.amount)
                             fields_tax_product_line = [tax_name, tax_included, tax_refundable, tax_rate, tax_amount,
@@ -183,7 +179,7 @@ class exportsage(orm.Model):
         filename = 'export_to_sage50'
         this.name = "%s.%s" % (filename, this.format)
         out = base64.encodestring(output)
-        self.write(cr, uid, ids, {'state':'get', 'data':out, 'name':this.name, 'format' : this.format}, context=context)
+        self.write(cr, uid, ids, {'state': 'get', 'data': out, 'name': this.name, 'format': this.format}, context=context)
 
         return {
             'type': 'ir.actions.act_window',
