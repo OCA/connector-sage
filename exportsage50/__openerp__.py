@@ -32,17 +32,17 @@ Export accounting data from OpenERP to Sage50. The export generates the imp file
 
 
 Documentation : layout of the import file (.IMP)
-================================================
+------------------------------------------------
 
 A PDF document (in the /doc repository) gives more details about the .IMP file layout that can be imported
 into Sage 50. This document is part of the Sage 50 SDK (Software Development Kit) available for download at
 the following address : http://na.sage.com/sage-simply-accounting/lp/partners/sdk/?isnow=ssa.
 
 Sage 50: After creating .IMP file
-=================================
+---------------------------------
 
 Solution:
-Importing purchase invoices, purchase quotes, sales invoices and sales orders into Sage 50
+* Importing purchase invoices, purchase quotes, sales invoices and sales orders into Sage 50
 
 How to import purchase invoices, purchase quotes, sales invoices and sales orders?
 
@@ -96,10 +96,10 @@ is checked
   Open the import file in Notepad and make the necessary changes
 
 Contributors
-============
+------------
 
-EL HADJI DEM <elhadji.dem@savoirfairelinux.com>
-Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
+* El Hadji Dem <elhadji.dem@savoirfairelinux.com>
+* Maxime Chambreuil <maxime.chambreuil@savoirfairelinux.com>
 
     """,
     "author": "Savoirfaire Linux,Gestion-Ressources,Odoo Community Association (OCA)",
