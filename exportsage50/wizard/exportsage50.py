@@ -73,7 +73,7 @@ class exportsage(orm.Model):
         for line in line_obj.browse(cr, uid, data['invoice_ids'], context=context):
             # start tag for invoice lines
             output += '<SalInvoice>''\n'
-            #informations sur le client
+            # informations sur le client
             costumer_name = line.partner_id.name
             onetimefield = ""
             contact_name = line.partner_id.name or ""
@@ -131,7 +131,7 @@ class exportsage(orm.Model):
             sale_invoice = ','.join(['"%s"' % one_field for one_field in fields_sale_invoice])
             output += sale_invoice.encode('UTF-8') + '\n'
             product_line_invoice_with_tax = ""
-            #Sale invoice detail lines
+            # Sale invoice detail lines
             product_ids = account_invoice_line_obj.search(cr,
                                                           uid,
                                                           [('invoice_id', '=', line.id)],
