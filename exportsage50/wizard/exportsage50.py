@@ -37,7 +37,6 @@ class exportsage(osv.osv):
     """
     _name = "exportsage"
     _description = "Create imp file  to export  in sage50"
-    _inherit = "ir.wizard.screen"
     _columns = {
         'data': fields.binary('File', readonly=True),
         'name': fields.char('Filename', 20, readonly=True),
@@ -81,17 +80,17 @@ class exportsage(osv.osv):
             #informations sur le client
             costumer_name = line.partner_id.name
             oneTimefield = ""
-            contact_name = line.partner_id.address[0].name or ""
-            street1 = line.partner_id.address[0].street or ""
-            street2 = line.partner_id.address[0].street2 or ""
-            city = line.partner_id.address[0].city or ""
-            province_state = line.partner_id.address[0].state_id.name or ""
-            zip_code = line.partner_id.address[0].zip or ""
-            country = line.partner_id.address[0].country_id.name or ""
-            phone1 = line.partner_id.address[0].phone or ""
-            mobile = line.partner_id.address[0].mobile or ""
-            fax = line.partner_id.address[0].fax or ""
-            email = line.partner_id.address[0].email or ""
+            contact_name = line.partner_id.child_ids and line.partner_id.child_ids[0].name or ""
+            street1 = line.partner_id.child_ids and line.partner_id.child_ids[0].street or ""
+            street2 = line.partner_id.child_ids and line.partner_id.child_ids[0].street2 or ""
+            city = line.partner_id.child_ids and line.partner_id.child_ids[0].city or ""
+            province_state = line.partner_id.child_ids and line.partner_id.child_ids[0].state_id.name or ""
+            zip_code = line.partner_id.child_ids and line.partner_id.child_ids[0].zip or ""
+            country = line.partner_id.child_ids and line.partner_id.child_ids[0].country_id.name or ""
+            phone1 = line.partner_id.child_ids and line.partner_id.child_ids[0].phone or ""
+            mobile = line.partner_id.child_ids and line.partner_id.child_ids[0].mobile or ""
+            fax = line.partner_id.child_ids and line.partner_id.child_ids[0].fax or ""
+            email = line.partner_id.child_ids and line.partner_id.child_ids[0].email or ""
             # ligne de client
             fields = [costumer_name, oneTimefield, contact_name, street1, street2,
                       city, province_state, zip_code, country, phone1, mobile, fax, email
@@ -149,7 +148,7 @@ class exportsage(osv.osv):
 
             if product_ids:
                 for product in account_invoice_line_obj.browse(cr, uid, product_ids):
-                    item_number = str(product.name)
+                    item_number = product.name
                     quantity = str(product.quantity)
                     price = str(product.price_unit)
                     amount = product.quantity * product.price_unit
@@ -190,6 +189,18 @@ class exportsage(osv.osv):
         this.name = "%s.%s" % (filename, this.format)
         out = base64.encodestring(output)
         self.write(cr, uid, ids, {'state':'get', 'data':out, 'name':this.name, 'format' : this.format}, context=context)
+
+        return {
+            'type': 'ir.actions.act_window',
+            'res_model': 'exportsage',
+            'name': _('Export accounting data to Sage50'),
+            'res_id': ids[0],
+            'view_type': 'form',
+            'view_mode': 'form',
+            'target': 'new',
+            'nodestroy': True,
+            'context': context
+        }
         
 exportsage()
 
