@@ -109,7 +109,7 @@ Comment exporter les données comptables à partir d'OpenERP?
 Un manuel d'utilisation est disponible dans le répertoire /doc du module.
 
     """,
-    "author": "Gestion-Ressources",
+    "author": "Gestion-Ressources,Odoo Community Association (OCA)",
     "website": "http://www.gestion-ressources.com",
     "license": "AGPL-3",
     'images': [],
