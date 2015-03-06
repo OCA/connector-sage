@@ -119,7 +119,7 @@ Un manuel d'utilisation est disponible dans le répertoire /doc du module.
         'security/ir.model.access.csv',
     ],
     'demo_xml': [],
-    'test':[],
+    'test': [],
     'installable': True,
     'auto_install': False,
     'certificate': '',
