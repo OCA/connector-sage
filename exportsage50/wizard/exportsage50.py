@@ -28,7 +28,7 @@ from datetime import datetime
 import unicodedata
 
 
-class exportsage(orm.Model):
+class exportsage(orm.TransientModel):
     _name = "exportsage"
     _description = "Create imp file  to export  in sage50"
     _columns = {
