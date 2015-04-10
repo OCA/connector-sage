@@ -28,7 +28,7 @@ from tools.misc import get_iso_codes
 import pooler
 from datetime import datetime
 import decimal_precision as dp
-
+import openerp
 
 class exportsage(osv.osv):
 
@@ -148,7 +148,7 @@ class exportsage(osv.osv):
 
             if product_ids:
                 for product in account_invoice_line_obj.browse(cr, uid, product_ids):
-                    item_number = product.name
+                    item_number = openerp.tools.ustr(product.name)
                     quantity = str(product.quantity)
                     price = str(product.price_unit)
                     amount = product.quantity * product.price_unit
