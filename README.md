@@ -4,3 +4,12 @@
 Odoo Connector for Sage 5.0
 
 Write me :-)
+
+[//]: # (addons)
+Available addons
+----------------
+addon | version | summary
+--- | --- | ---
+[exportsage50](exportsage50/) | 1.0 | Export to Sage50
+
+[//]: # (end addons)
