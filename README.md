@@ -10,6 +10,6 @@ Available addons
 ----------------
 addon | version | summary
 --- | --- | ---
-[exportsage50](exportsage50/) | 1.0 | Export to Sage50
+[exportsage50](exportsage50/) | 8.0.1.0.0 | Export to Sage50
 
 [//]: # (end addons)

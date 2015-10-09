@@ -21,7 +21,7 @@
 
 {
     'name': 'Export to Sage50',
-    'version': '1.0',
+    'version': '8.0.1.0.0',
     "category": 'Accounting & Finance',
     'complexity': "easy",
     'description': """
