@@ -120,7 +120,7 @@ Un manuel d'utilisation est disponible dans le répertoire /doc du module.
     ],
     'demo_xml': [],
     'test':[],
-    'installable': True,
+    'installable': False,
     'auto_install': False,
     'certificate': '',
     'application': True,
