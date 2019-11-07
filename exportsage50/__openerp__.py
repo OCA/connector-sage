@@ -27,13 +27,13 @@
     'description': """
 French version below
 
-Export accounting data from OpenErp to Sage50.
-====================================
+Export accounting data from OpenErp to Sage50
+=============================================
  Export accounting data from OpenErp to Sage50. The exportation generates the imp file to import in Sage50.
 
 
 Documentation : layout of the import file (.IMP)
-====================================
+================================================
 A PDF document (in the /doc repository) gives more details about the .IMP file layout that can be imported
 into Sage 50.This document is part of the Sage 50 SDK (Software Development Kit) available for download at
 the following address : http://na.sage.com/sage-simply-accounting/lp/partners/sdk/?isnow=ssa.
@@ -41,7 +41,7 @@ the following address : http://na.sage.com/sage-simply-accounting/lp/partners/sd
 
 
 Sage 50: After creating .IMP file
-====================================
+=================================
 Solution:
 Importing purchase invoices, purchase quotes, sales invoices and sales orders into Sage 50
 How to import purchase invoices, purchase quotes, sales invoices and sales orders?
@@ -71,7 +71,7 @@ Sage Business Care plan does NOT include support for SDK. Please, contact one of
 for further assistance.
 
 Possible errors when importing purchase invoices, purchase quotes, sales invoices and/or sales orders
-====================================
+=====================================================================================================
 Questions and Answers
 Import started... Errors occurred while importing.
 Line x does not contain compatible tax information.
@@ -85,30 +85,28 @@ into Simply Accounting:
   Refer to the KB article 25659 for more information about the format of the import file.
 
 - The transaction type is not enabled in the Simply Accounting company. To enable the feature, from the Home Window
-in Simply Accounting, go to Setup, Settings, Company, Features, make sure the type of transaction you want to import
-is checked
+  in Simply Accounting, go to Setup, Settings, Company, Features, make sure the type of transaction you want to import
+  is checked
 
 - The dates in the import file do not match the fiscal year dates in Simply Accounting.
   Open the import file in Notepad and make the necessary changes
 
 
-Exportation des données comptables de OpenERP vers Sage50.
-==============================================
-Ce module exporte des données comptables de OpenERP vers Sage50. Le module génére un fichier imp file qui peut
+Exportation des données comptables de Odoo vers Sage50
+======================================================
+Ce module exporte des données comptables de Odoo vers Sage50. Le module génére un fichier imp file qui peut
 être importé dans Sage50.
 
 Documentation : Format du fichier à importer (.IMP)
-====================================
+===================================================
 Un document .PDF (dans le répertoire /doc) donne plus de détails sur le format du fichier .IMP qui peut être
 importé dans Sage 50. Ce document fait parti du Kit de développement - SDK de Sage 50  qui peut-être téléchargé
 à l'adresse suivante : http://na.sage.com/sage-simply-accounting/lp/partners/sdk/?isnow=ssa.
 
 Guide d'utilisation export Sage 50
-========================================
-Comment exporter les données comptables à partir d'OpenERP?
-Un manuel d'utilisation est disponible dans le répertoire /doc du module.
-
-    """,
+==================================
+Comment exporter les données comptables à partir d'Odoo?
+Un manuel d'utilisation est disponible dans le répertoire /doc du module.""",
     "author": "Gestion-Ressources,Odoo Community Association (OCA)",
     "website": "http://www.gestion-ressources.com",
     "license": "AGPL-3",
