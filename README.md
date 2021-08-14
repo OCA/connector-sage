@@ -9,8 +9,8 @@ Write me :-)
 
 Available addons
 ----------------
-addon | version | summary
---- | --- | ---
-[exportsage50](exportsage50/) | 8.0.1.0.0 | Export to Sage50
+addon | version | maintainers | summary
+--- | --- | --- | ---
+[exportsage50](exportsage50/) | 8.0.1.0.0 |  | Export to Sage50
 
 [//]: # (end addons)
